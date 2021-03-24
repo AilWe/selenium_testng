@@ -5,11 +5,7 @@
     <classes>
       <class name="koinstreet_learn_app.Navigation">
         <methods>
-          <include name="NavigationAtStartCourse2"/>
           <include name="openTheWebsite"/>
-          <include name="NavigationAtStartCourse1"/>
-          <include name="NavigationAtStartCourse4"/>
-          <include name="NavigationAtStartCourse3"/>
           <include name="closeTheWebsite"/>
           <include name="NavigationAtStartCourse5"/>
           <include name="invokeTheDriver"/>
