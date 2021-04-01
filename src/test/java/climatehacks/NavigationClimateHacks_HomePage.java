@@ -20,7 +20,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
-public class NavigationClimateHacks {
+public class NavigationClimateHacks_HomePage {
     public static String browser = "chrome"; // External configuration -XLS, CVS
     public static WebDriver driver;
     //private WebDriver driver;
