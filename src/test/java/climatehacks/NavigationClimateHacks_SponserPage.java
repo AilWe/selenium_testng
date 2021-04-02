@@ -22,7 +22,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
-public class NavigationClimateHacks_AboutPage {
+public class NavigationClimateHacks_SponserPage {
     public static String browser = "chrome"; // External configuration -XLS, CVS
     public static WebDriver driver;
     //private WebDriver driver;
@@ -73,10 +73,10 @@ public class NavigationClimateHacks_AboutPage {
         System.out.println("Close the website");
     }*/
 
-    @Test(priority = 1, description = "Navigation at About Tab")
-    public void NavigationAtAboutTab(){
+    @Test(priority = 1, description = "Navigation at Sponser Tab")
+    public void NavigationAtSponserTab(){
         driver.get("https://climatehacks.dev/");
-        driver.findElement(By.cssSelector("body > section.ss_index_one > div > div.ss_header > div > div.col-lg-9.col-md-5.col-sm-12.col-12.align-self-center > div > ul > li:nth-child(1) > a")).click();
+        driver.findElement(By.xpath("/html/body/section[1]/div/div[1]/div/div[2]/div/ul/li[4]/a")).click();
 
         String actualWebsite =  driver.getCurrentUrl();
         //System.out.println(actualWebsite);
@@ -84,29 +84,45 @@ public class NavigationClimateHacks_AboutPage {
         String actualTitle = driver.getTitle();
         //System.out.println(actualTitle);
 
-        String expectWebsite= "https://climatehacks.dev/about.html";
+        String expectWebsite= "https://climatehacks.dev/sponsor.html";
         String expectTitle = "ClimateHacks";
 
         Assert.assertEquals(actualTitle, expectTitle);
         Assert.assertEquals(actualWebsite,expectWebsite);
 
-        System.out.println("Navigation at About Tab successfully");
+        System.out.println("Navigation at Sponser Tab successfully");
 
     }
-//Not sure what it links to.
-    @Test(priority = 2, description = "Navigation at 'f' under Tahmid Biswas at Home Page")
-    public void NavigationatfunderTahmidBiswasatHomePage(){
-        driver.get("https://climatehacks.dev/");
-        driver.findElement(By.cssSelector("body > section.ss_index_one > div > div.ss_header > div > div.col-lg-9.col-md-5.col-sm-12.col-12.align-self-center > div > ul > li:nth-child(1) > a")).click();
 
-        WebElement element = driver.findElement(By.xpath("/html/body/section[3]/div/div/div/div/div[1]/div"));
+    @Test(priority = 2, description = "Navigation at Get Involved at Sponser Page")
+    public void NavigationatGetInvolvedatSponserPage() throws InterruptedException{
+        driver.get("https://climatehacks.dev/");
+        driver.findElement(By.xpath("/html/body/section[1]/div/div[1]/div/div[2]/div/ul/li[4]/a")).click();
+        WebElement element = driver.findElement(By.xpath("/html/body/section[2]/div/div[1]/div[2]/div/a"));
+        //Actions action = new Actions(driver);
+        Actions actions = new Actions(driver);
+        actions.moveToElement(element).perform();
+
+
+        WebDriverWait wait = new WebDriverWait(driver, 10);
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("/html/body/section[2]/div/div[1]/div[2]/div/a"))).click();
+        //Thread.sleep(2000);
+        System.out.println("Navigation at Get Involved at Sponser Page successfully");
+
+    }
+
+    @Test(priority = 3, description = "Navigation at Bronze Sponser At Sponser Page")
+    public void NavigationatBronzeSponserAtSponserPage(){
+        driver.get("https://climatehacks.dev/");
+        driver.findElement(By.xpath("/html/body/section[1]/div/div[1]/div/div[2]/div/ul/li[4]/a")).click();
+        WebElement element = driver.findElement(By.xpath("/html/body/section[4]/div/div/div[1]/div"));
         //Actions action = new Actions(driver);
         Actions actions = new Actions(driver);
         actions.moveToElement(element).perform();
         //Thread.sleep(2000);
 
         WebDriverWait wait = new WebDriverWait(driver, 10);
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("/html/body/section[3]/div/div/div/div/div[1]/div/ul/li/a"))).click();
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("/html/body/section[4]/div/div/div[1]/div/span/a"))).click();
         //hard code
         Set<String> windowshandle = driver.getWindowHandles();
 
@@ -128,23 +144,21 @@ public class NavigationClimateHacks_AboutPage {
         Assert.assertEquals(actualTitle, expectTitle);
         Assert.assertEquals(actualWebsite,expectWebsite);
 
-        System.out.println("Navigation at 'f' under Tahmid Biswas at Home Page successfully");
+        System.out.println("Navigation at Bronze Sponser At Sponser Page successfully");
 
     }
-//Not sure what it links to.
-    @Test(priority = 3, description = "Navigation at 'f' under Jillian Lynch at Home Page")
-    public void NavigationatfunderJillianLynchatHomePage(){
+    @Test(priority = 4, description = "Navigation at Silver Sponser At Sponser Page")
+    public void NavigationatSilverSponserAtSponserPage(){
         driver.get("https://climatehacks.dev/");
-        driver.findElement(By.cssSelector("body > section.ss_index_one > div > div.ss_header > div > div.col-lg-9.col-md-5.col-sm-12.col-12.align-self-center > div > ul > li:nth-child(1) > a")).click();
-
-        WebElement element = driver.findElement(By.xpath("/html/body/section[3]/div/div/div/div/div[2]/div"));
+        driver.findElement(By.xpath("/html/body/section[1]/div/div[1]/div/div[2]/div/ul/li[4]/a")).click();
+        WebElement element = driver.findElement(By.xpath("/html/body/section[4]/div/div/div[2]/div"));
         //Actions action = new Actions(driver);
         Actions actions = new Actions(driver);
         actions.moveToElement(element).perform();
         //Thread.sleep(2000);
 
         WebDriverWait wait = new WebDriverWait(driver, 10);
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("/html/body/section[3]/div/div/div/div/div[2]/div/ul/li/a"))).click();
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("/html/body/section[4]/div/div/div[2]/div/span/a"))).click();
         //hard code
         Set<String> windowshandle = driver.getWindowHandles();
 
@@ -166,23 +180,20 @@ public class NavigationClimateHacks_AboutPage {
         Assert.assertEquals(actualTitle, expectTitle);
         Assert.assertEquals(actualWebsite,expectWebsite);
 
-        System.out.println("Navigation at 'f' under Jillian Lynch at Home Page successfully");
-
+        System.out.println("Navigation at Silver Sponser At Sponser Page successfully");
     }
-    //Not sure what it links to.
-    @Test(priority = 4, description = "Navigation at 'f' under Marc Duny at Home Page")
-    public void NavigationatfunderMarcDunyatHomePage(){
+    @Test(priority = 5, description = "Navigation at Gold Sponser At Sponser Page")
+    public void NavigationatGoldSponserAtSponserPage(){
         driver.get("https://climatehacks.dev/");
-        driver.findElement(By.cssSelector("body > section.ss_index_one > div > div.ss_header > div > div.col-lg-9.col-md-5.col-sm-12.col-12.align-self-center > div > ul > li:nth-child(1) > a")).click();
-
-        WebElement element = driver.findElement(By.xpath("/html/body/section[3]/div/div/div/div/div[3]/div"));
+        driver.findElement(By.xpath("/html/body/section[1]/div/div[1]/div/div[2]/div/ul/li[4]/a")).click();
+        WebElement element = driver.findElement(By.xpath("/html/body/section[4]/div/div/div[3]/div"));
         //Actions action = new Actions(driver);
         Actions actions = new Actions(driver);
         actions.moveToElement(element).perform();
         //Thread.sleep(2000);
 
         WebDriverWait wait = new WebDriverWait(driver, 10);
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("/html/body/section[3]/div/div/div/div/div[3]/div/ul/li/a"))).click();
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("/html/body/section[4]/div/div/div[3]/div/span/a"))).click();
         //hard code
         Set<String> windowshandle = driver.getWindowHandles();
 
@@ -204,23 +215,20 @@ public class NavigationClimateHacks_AboutPage {
         Assert.assertEquals(actualTitle, expectTitle);
         Assert.assertEquals(actualWebsite,expectWebsite);
 
-        System.out.println("Navigation at 'f' under Marc Duny at Home Page successfully");
-
+        System.out.println("Navigation at Gold Sponser At Sponser Page successfully");
     }
-    //Not sure what it links to.
-    @Test(priority = 5, description = "Navigation at 'f' under Myles Patterson at Home Page")
-    public void NavigationatfunderMylesPattersonatHomePage(){
+    @Test(priority = 6, description = "Navigation at Platinum Sponser At Sponser Page")
+    public void NavigationatPlatinumSponserAtSponserPage(){
         driver.get("https://climatehacks.dev/");
-        driver.findElement(By.cssSelector("body > section.ss_index_one > div > div.ss_header > div > div.col-lg-9.col-md-5.col-sm-12.col-12.align-self-center > div > ul > li:nth-child(1) > a")).click();
-
-        WebElement element = driver.findElement(By.xpath("/html/body/section[3]/div/div/div/div/div[4]/div/img"));
+        driver.findElement(By.xpath("/html/body/section[1]/div/div[1]/div/div[2]/div/ul/li[4]/a")).click();
+        WebElement element = driver.findElement(By.xpath("/html/body/section[4]/div/div/div[4]/div"));
         //Actions action = new Actions(driver);
         Actions actions = new Actions(driver);
         actions.moveToElement(element).perform();
         //Thread.sleep(2000);
 
         WebDriverWait wait = new WebDriverWait(driver, 10);
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("/html/body/section[3]/div/div/div/div/div[4]/div/ul/li/a"))).click();
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("/html/body/section[4]/div/div/div[4]/div/span/a"))).click();
         //hard code
         Set<String> windowshandle = driver.getWindowHandles();
 
@@ -241,57 +249,7 @@ public class NavigationClimateHacks_AboutPage {
 
         Assert.assertEquals(actualTitle, expectTitle);
         Assert.assertEquals(actualWebsite,expectWebsite);
-        System.out.println("Navigation at 'f' under Myles Patterson at Home Page successfully");
 
-    }
-    @Test(priority = 6, description = "Navigation at Learn More At About Page")
-    public void NavigationAtLearnMoreAtAboutPage(){
-
-        driver.get("https://climatehacks.dev/");
-        driver.findElement(By.cssSelector("body > section.ss_index_one > div > div.ss_header > div > div.col-lg-9.col-md-5.col-sm-12.col-12.align-self-center > div > ul > li:nth-child(1) > a")).click();
-
-        WebElement element = driver.findElement(By.xpath("/html/body/section[4]/div/div/div[1]/div/a"));
-        //Actions action = new Actions(driver);
-        Actions actions = new Actions(driver);
-        actions.moveToElement(element).perform();
-
-        WebDriverWait wait = new WebDriverWait(driver, 10);
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("/html/body/section[4]/div/div/div[1]/div/a"))).click();
-
-        //hard code
-        Set<String> windowshandle = driver.getWindowHandles();
-
-        Iterator<String> iterator = windowshandle.iterator();
-        iterator.next();
-        String childWindow = iterator.next();
-
-
-        driver.switchTo().window(childWindow);
-        String actualWebsite =  driver.getCurrentUrl();
-        //System.out.println(actualWebsite);
-
-        String actualTitle = driver.getTitle();
-        //System.out.println(actualTitle);
-        String expectWebsite= "https://minorityprogrammers.com/";
-        String expectTitle = "Minority Programmers Associations - Connecting programmers";
-
-        Assert.assertEquals(actualTitle, expectTitle);
-        Assert.assertEquals(actualWebsite,expectWebsite);
-        System.out.println("Navigation at Learn More At About Page successfully");
-    }
-
-    @Test(priority = 7, description = "SendKey at stay connected with us at about page")
-    public void SendKeyatstayconnectedwithusataboutpage() throws InterruptedException{
-        driver.get("https://climatehacks.dev/");
-        driver.findElement(By.cssSelector("body > section.ss_index_one > div > div.ss_header > div > div.col-lg-9.col-md-5.col-sm-12.col-12.align-self-center > div > ul > li:nth-child(1) > a")).click();
-
-        WebElement Enteryoutemail = driver.findElement(By.xpath("/html/body/section[6]/div/div/div/div[2]/div/input"));
-
-        Actions actions = new Actions(driver);
-        actions.moveToElement(Enteryoutemail).perform();
-        Enteryoutemail.sendKeys("aileen@minorityprogrammers.org");
-        Thread.sleep(2000);
-        driver.findElement(By.xpath("/html/body/section[6]/div/div/div/div[2]/div/button")).click();
-        System.out.println("SendKey at stay connected with us at about page successfully");
+        System.out.println("Navigation at Platinum Sponser At Sponser Page successfully");
     }
 }

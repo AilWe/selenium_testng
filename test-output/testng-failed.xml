@@ -3,17 +3,13 @@
 <suite name="Failed suite [Default Suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="selenium_testng(failed)">
     <classes>
-      <class name="climatehacks.NavigationClimateHacks_HomePage">
+      <class name="climatehacks.NavigationClimateHacks_SponserPage">
         <methods>
-          <include name="invokeTheDriver"/>
           <include name="closeTheDriver"/>
-          <include name="NavigationAtHomeGetStart"/>
-          <include name="NavigationAtJoinDiscordAtHomePage"/>
-          <include name="NavigationAtSignUpAtStayConnectedWithUsAtHomePage"/>
-          <include name="NavigationAtRegistrationOpenforClimateHacksAtHomePage"/>
-          <include name="NavigationAtHowtoStartLearningNowAtHomePage"/>
+          <include name="invokeTheDriver"/>
+          <include name="NavigationatGetInvolvedatSponserPage"/>
         </methods>
-      </class> <!-- climatehacks.NavigationClimateHacks_HomePage -->
+      </class> <!-- climatehacks.NavigationClimateHacks_SponserPage -->
     </classes>
   </test> <!-- selenium_testng(failed) -->
 </suite> <!-- Failed suite [Default Suite] -->
