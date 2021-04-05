@@ -3,13 +3,13 @@
 <suite name="Failed suite [Default Suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="selenium_testng(failed)">
     <classes>
-      <class name="climatehacks.NavigationClimateHacks_SponserPage">
+      <class name="climatehacks.NavigationClimateHacks_SchedulePage">
         <methods>
-          <include name="closeTheDriver"/>
           <include name="invokeTheDriver"/>
-          <include name="NavigationatGetInvolvedatSponserPage"/>
+          <include name="closeTheDriver"/>
+          <include name="NavigationAtRSVPAtSchedulePage"/>
         </methods>
-      </class> <!-- climatehacks.NavigationClimateHacks_SponserPage -->
+      </class> <!-- climatehacks.NavigationClimateHacks_SchedulePage -->
     </classes>
   </test> <!-- selenium_testng(failed) -->
 </suite> <!-- Failed suite [Default Suite] -->
